@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/reposytories/weather_forecast/model/all_weather_forecast.dart';
+import 'package:weather_app/repositories/weather_forecast/model/all_weather_forecast.dart';
 
 class WeatherAppBar extends StatelessWidget {
   const WeatherAppBar({
     super.key,
-    required this.city,
     required this.forecast,
   });
-  final String city;
   final AllWeatherForecast forecast;
 
   @override
@@ -36,7 +34,7 @@ class WeatherAppBar extends StatelessWidget {
                         const Icon(Icons.location_on, color: Colors.white),
                         const SizedBox(width: 8),
                         Text(
-                          city,
+                          forecast.city,
                           style: const TextStyle(
                               color: Colors.white, fontSize: 18),
                         ),
@@ -64,7 +62,7 @@ class WeatherAppBar extends StatelessWidget {
                         const Icon(Icons.location_on, color: Colors.white),
                         const SizedBox(width: 8),
                         Text(
-                          city,
+                          forecast.city,
                           style: const TextStyle(
                               color: Colors.white, fontSize: 18),
                         ),
