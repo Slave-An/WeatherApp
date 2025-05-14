@@ -56,7 +56,10 @@ class HumidityAndPresureWidget extends StatelessWidget {
               children: [
                 const Text(
                   'Pressure',
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
                 )
               ],
             ),
@@ -64,7 +67,11 @@ class HumidityAndPresureWidget extends StatelessWidget {
             height: 170,
             child: Column(
               children: [
-                Center(child: PressureGauge(value: allForecast.presureMb))
+                Center(
+                  child: PressureGauge(
+                    value: allForecast.presureMb,
+                  ),
+                )
               ],
             ),
           ),

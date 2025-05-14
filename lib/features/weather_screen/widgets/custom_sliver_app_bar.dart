@@ -5,16 +5,30 @@ class WeatherAppBar extends StatelessWidget {
   const WeatherAppBar({
     super.key,
     required this.forecast,
+    required this.cancelButton,
+    required this.addbutton,
+    required this.topPadding,
   });
   final AllWeatherForecast forecast;
+  final Widget? cancelButton;
+  final Widget? addbutton;
+  final double topPadding;
 
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
       expandedHeight: 250,
+      automaticallyImplyLeading: false,
       floating: false,
       pinned: true,
       backgroundColor: Colors.blueAccent,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          cancelButton ?? SizedBox.shrink(),
+          addbutton ?? SizedBox.shrink(),
+        ],
+      ),
       flexibleSpace: LayoutBuilder(
         builder: (context, constraints) {
           double percent =
@@ -25,7 +39,7 @@ class WeatherAppBar extends StatelessWidget {
             title: Opacity(
               opacity: 1 - percent.clamp(0.0, 1.0),
               child: Padding(
-                padding: const EdgeInsets.only(top: 55),
+                padding: EdgeInsets.only(top: topPadding),
                 child: Column(
                   children: [
                     Row(
@@ -36,7 +50,9 @@ class WeatherAppBar extends StatelessWidget {
                         Text(
                           forecast.city,
                           style: const TextStyle(
-                              color: Colors.white, fontSize: 18),
+                            color: Colors.white,
+                            fontSize: 18,
+                          ),
                         ),
                       ],
                     ),
@@ -64,7 +80,9 @@ class WeatherAppBar extends StatelessWidget {
                         Text(
                           forecast.city,
                           style: const TextStyle(
-                              color: Colors.white, fontSize: 18),
+                            color: Colors.white,
+                            fontSize: 18,
+                          ),
                         ),
                       ],
                     ),
@@ -90,7 +108,7 @@ class WeatherAppBar extends StatelessWidget {
           );
         },
       ),
-      toolbarHeight: 60,
+      toolbarHeight: 70,
     );
   }
 }

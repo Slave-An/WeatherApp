@@ -58,43 +58,54 @@ class AllWeatherForecast {
       visKm: json['current']['vis_km']?.toDouble() ?? 0.0,
       presureMb: json['current']['pressure_mb']?.toInt() ?? 0,
       humidity: json['current']['humidity']?.toInt() ?? 0,
-      avgTemp: (json['forecast']?['forecastday']?.isNotEmpty == true &&
-              json['forecast']?['forecastday']?[0]?['day']?['avgtemp_c'] !=
-                  null)
-          ? (json['forecast']!['forecastday']![0]['day']['avgtemp_c'] as num)
-              .toInt()
-          : 0,
-      hourTime: (json['forecast']['forecastday'] as List<dynamic>)
-          .expand((day) => (day['hour']) as List<dynamic>)
-          .map((e) => DateTime.parse(e['time'] as String))
-          .toList(),
-      hourTemperature: (json['forecast']['forecastday'] as List<dynamic>)
-          .expand((day) => (day['hour'] as List<dynamic>))
-          .map((e) => (e['temp_c'] as num).toDouble())
-          .toList(),
-      hourCondition: (json['forecast']['forecastday'] as List<dynamic>)
-          .expand((day) => (day['hour'] as List<dynamic>))
-          .map((e) => (e['condition']['text'] as String))
-          .toList(),
-      hourImageUrl: (json['forecast']['forecastday'] as List<dynamic>)
-          .expand((day) => (day['hour'] as List<dynamic>))
-          .map((e) => ('https:${e['condition']['icon'] as String}'))
-          .toList(),
-      dailyDate: (json['forecast']['forecastday'] as List<dynamic>)
-          .map((e) => (e['date'] as String))
-          .toList(),
-      dailyMinTemp: (json['forecast']['forecastday'] as List<dynamic>)
-          .map((e) => (e['day']['mintemp_c'] as num).toDouble())
-          .toList(),
-      dailyMaxTemp: (json['forecast']['forecastday'] as List<dynamic>)
-          .map((e) => (e['day']['maxtemp_c'] as num).toDouble())
-          .toList(),
-      dailyCondition: (json['forecast']['forecastday'] as List<dynamic>)
-          .map((e) => (e['day']['condition']['text'] as String))
-          .toList(),
-      dailyImageUrl: (json['forecast']['forecastday'] as List<dynamic>)
-          .map((e) => ('https:${e['day']['condition']['icon'] as String}'))
-          .toList(),
+      avgTemp:
+          (json['forecast']?['forecastday']?.isNotEmpty == true &&
+                  json['forecast']?['forecastday']?[0]?['day']?['avgtemp_c'] !=
+                      null)
+              ? (json['forecast']!['forecastday']![0]['day']['avgtemp_c']
+                      as num)
+                  .toInt()
+              : 0,
+      hourTime:
+          (json['forecast']['forecastday'] as List<dynamic>)
+              .expand((day) => (day['hour']) as List<dynamic>)
+              .map((e) => DateTime.parse(e['time'] as String))
+              .toList(),
+      hourTemperature:
+          (json['forecast']['forecastday'] as List<dynamic>)
+              .expand((day) => (day['hour'] as List<dynamic>))
+              .map((e) => (e['temp_c'] as num).toDouble())
+              .toList(),
+      hourCondition:
+          (json['forecast']['forecastday'] as List<dynamic>)
+              .expand((day) => (day['hour'] as List<dynamic>))
+              .map((e) => (e['condition']['text'] as String))
+              .toList(),
+      hourImageUrl:
+          (json['forecast']['forecastday'] as List<dynamic>)
+              .expand((day) => (day['hour'] as List<dynamic>))
+              .map((e) => ('https:${e['condition']['icon'] as String}'))
+              .toList(),
+      dailyDate:
+          (json['forecast']['forecastday'] as List<dynamic>)
+              .map((e) => (e['date'] as String))
+              .toList(),
+      dailyMinTemp:
+          (json['forecast']['forecastday'] as List<dynamic>)
+              .map((e) => (e['day']['mintemp_c'] as num).toDouble())
+              .toList(),
+      dailyMaxTemp:
+          (json['forecast']['forecastday'] as List<dynamic>)
+              .map((e) => (e['day']['maxtemp_c'] as num).toDouble())
+              .toList(),
+      dailyCondition:
+          (json['forecast']['forecastday'] as List<dynamic>)
+              .map((e) => (e['day']['condition']['text'] as String))
+              .toList(),
+      dailyImageUrl:
+          (json['forecast']['forecastday'] as List<dynamic>)
+              .map((e) => ('https:${e['day']['condition']['icon'] as String}'))
+              .toList(),
     );
   }
 }

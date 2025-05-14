@@ -29,16 +29,23 @@ class AvgAndFeelsLikeWidget extends StatelessWidget {
                 ),
                 Text(
                   'Avg Temp',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 )
               ],
             ),
             child: Center(
               child: Text(
-                  allForecast.avgTemp > 0
-                      ? '+${allForecast.avgTemp}°'
-                      : '${allForecast.avgTemp}°',
-                  style: TextStyle(fontSize: 40, color: Colors.white)),
+                allForecast.avgTemp > 0
+                    ? '+${allForecast.avgTemp}°'
+                    : '${allForecast.avgTemp}°',
+                style: TextStyle(
+                  fontSize: 40,
+                  color: Colors.white,
+                ),
+              ),
             ),
           ),
           BaseContainer(
@@ -53,7 +60,10 @@ class AvgAndFeelsLikeWidget extends StatelessWidget {
                 ),
                 Text(
                   'Feels like',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 )
               ],
             ),
@@ -62,10 +72,20 @@ class AvgAndFeelsLikeWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('${allForecast.feelsLike.toInt()}°',
-                      style: TextStyle(fontSize: 30, color: Colors.white)),
-                  Text('Actual: ${allForecast.temperature.toInt()}°',
-                      style: TextStyle(fontSize: 20, color: Colors.white))
+                  Text(
+                    '${allForecast.feelsLike.toInt()}°',
+                    style: TextStyle(
+                      fontSize: 30,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    'Actual: ${allForecast.temperature.toInt()}°',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                  ),
                 ],
               ),
             ),

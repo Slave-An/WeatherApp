@@ -16,15 +16,20 @@ class WeatherTenDayHeaderDelegate extends SliverPersistentHeaderDelegate {
     return Padding(
       padding: const EdgeInsets.all(12),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 12).copyWith(top: 10),
+        padding: EdgeInsets.only(top: 10, right: 12, left: 12),
         decoration: BoxDecoration(
           color: Color(0xFF007BFF),
           borderRadius: BorderRadius.circular(19),
         ),
         child: Column(
           children: [
-            Text("10-days forecast",
-                style: TextStyle(fontSize: 14, color: Colors.white)),
+            Text(
+              "10-days forecast",
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.white,
+              ),
+            ),
             SizedBox(height: 5),
             Divider(),
             SizedBox(
@@ -46,8 +51,11 @@ class WeatherTenDayHeaderDelegate extends SliverPersistentHeaderDelegate {
                           index == 0 ? dayName : dayName.substring(0, 3),
                           style: TextStyle(color: Colors.white),
                         ),
-                        Image.network(forecast.dailyImageUrl[index],
-                            width: 32, height: 32),
+                        Image.network(
+                          forecast.dailyImageUrl[index],
+                          width: 32,
+                          height: 32,
+                        ),
                         Text(
                           'Min: ${forecast.dailyMinTemp[index].toInt()}°',
                           style: TextStyle(color: Colors.white),

@@ -15,6 +15,14 @@ class WeatherLoading extends WeatherState {
   List<Object?> get props => [];
 }
 
+class AllWeatherLoaded extends WeatherState {
+  AllWeatherLoaded({required this.allWeatherForecast});
+  final List<AllWeatherForecast> allWeatherForecast;
+
+  @override
+  List<Object?> get props => [allWeatherForecast];
+}
+
 class WeatherLoaded extends WeatherState {
   WeatherLoaded({required this.weatherForecast});
   final AllWeatherForecast weatherForecast;
@@ -23,10 +31,10 @@ class WeatherLoaded extends WeatherState {
   List<Object?> get props => [weatherForecast];
 }
 
-class WearherLoadingFailure extends WeatherState {
-  WearherLoadingFailure({required this.exeption});
-  final Object? exeption;
+class WeatherLoadingFailure extends WeatherState {
+  WeatherLoadingFailure({required this.exception});
+  final Exception exception;
 
   @override
-  List<Object?> get props => [exeption];
+  List<Object?> get props => [exception];
 }

@@ -17,20 +17,27 @@ class PressureGauge extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          CustomPaint(size: Size(120, 120), painter: GaugePainter()),
+          CustomPaint(
+            size: Size(120, 120),
+            painter: GaugePainter(),
+          ),
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
                 value.toString(),
                 style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
+                  fontSize: 24,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               Text(
                 'гПа',
-                style: TextStyle(fontSize: 14, color: Colors.white70),
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white70,
+                ),
               ),
             ],
           ),
