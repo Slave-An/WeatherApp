@@ -21,14 +21,20 @@ class WeatherDayHeaderDelegate extends SliverPersistentHeaderDelegate {
       child: Padding(
         padding: const EdgeInsets.all(12),
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 12).copyWith(top: 10),
+          padding: EdgeInsets.only(top: 10, left: 12, right: 12),
           decoration: BoxDecoration(
-              color: Color(0xFF007BFF),
-              borderRadius: BorderRadius.circular(19)),
+            color: Color(0xFF007BFF),
+            borderRadius: BorderRadius.circular(19),
+          ),
           child: Column(
             children: [
-              Text("Прогноз на день",
-                  style: TextStyle(fontSize: 14, color: Colors.white)),
+              Text(
+                "Прогноз на день",
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white,
+                ),
+              ),
               Divider(),
               SizedBox(
                 height: 100,
@@ -40,8 +46,12 @@ class WeatherDayHeaderDelegate extends SliverPersistentHeaderDelegate {
                         children: [
                           Column(
                             children: [
-                              Text("${forecast.hourTime[index].hour}:00",
-                                  style: TextStyle(color: Colors.white)),
+                              Text(
+                                "${forecast.hourTime[index].hour}:00",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
                               Image.network(
                                 forecast.hourImageUrl[index],
                                 width: 50,
@@ -49,7 +59,9 @@ class WeatherDayHeaderDelegate extends SliverPersistentHeaderDelegate {
                               ),
                               Text(
                                 "${forecast.hourTemperature[index].toInt()}°C",
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
                               ),
                             ],
                           ),
