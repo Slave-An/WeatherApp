@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/reposytories/weather_forecast/model/all_weather_forecast.dart';
+import 'package:weather_app/repositories/weather_forecast/model/all_weather_forecast.dart';
 
 class WeatherDayHeaderDelegate extends SliverPersistentHeaderDelegate {
   WeatherDayHeaderDelegate({required this.forecast});

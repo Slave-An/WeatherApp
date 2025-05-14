@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/reposytories/weather_forecast/model/all_weather_forecast.dart';
+import 'package:weather_app/repositories/weather_forecast/model/all_weather_forecast.dart';
 
 class WeatherTenDayHeaderDelegate extends SliverPersistentHeaderDelegate {
   WeatherTenDayHeaderDelegate({required this.forecast});
@@ -49,11 +49,11 @@ class WeatherTenDayHeaderDelegate extends SliverPersistentHeaderDelegate {
                         Image.network(forecast.dailyImageUrl[index],
                             width: 32, height: 32),
                         Text(
-                          'Min: ${forecast.dailyMinTemp[index].toInt()}',
+                          'Min: ${forecast.dailyMinTemp[index].toInt()}°',
                           style: TextStyle(color: Colors.white),
                         ),
                         Text(
-                          'Max: ${forecast.dailyMaxTemp[index].toInt()}',
+                          'Max: ${forecast.dailyMaxTemp[index].toInt()}°',
                           style: TextStyle(color: Colors.white),
                         ),
                       ],
@@ -67,6 +67,9 @@ class WeatherTenDayHeaderDelegate extends SliverPersistentHeaderDelegate {
   }
 
   String _getDayName(DateTime date) {
+    final DateTime today = DateTime.now();
+    final DateTime onlyDate = DateTime(date.year, date.month, date.day);
+    final DateTime onlyToday = DateTime(today.year, today.month, today.day);
     List<String> days = [
       'Monday',
       'Tuesday',
@@ -76,7 +79,10 @@ class WeatherTenDayHeaderDelegate extends SliverPersistentHeaderDelegate {
       'Saturday',
       'Sunday',
     ];
-    return days[date.weekday - 1]; // Получаем имя дня недели
+    if (onlyDate.isAtSameMomentAs(onlyToday)) {
+      return 'Today';
+    }
+    return days[date.weekday - 1];
   }
 
   @override
